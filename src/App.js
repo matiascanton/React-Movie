@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-function App() {
+import MovieList from './components/MovieList';
+
+
+const App = () => {
+
+  const [movies, setMovies] = useState ([
+    {
+      Title:	'Guardians of the Galaxy Vol. 2',
+      Year:	'2017',
+      imdbID:	'asdqwe',
+      Type: 'movie',	
+      Poster: 'https://images-na.ssl-images-amazon.com/images/I/7105gTLLZlL._AC_SL1024_.jpg',
+  
+    }
+
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid movie-app" >
+      <div className="row">
+        <MovieList
+          movies = {movies}
+        />
+      </div>
+      
     </div>
   );
 }
