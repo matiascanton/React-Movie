@@ -6,6 +6,11 @@ body{
 .movie-app > .row{
   overflow-x: auto;
   flex-wrap: nowrap;
+  padding: 1rem;
+}
+
+.movie-app > .row::-webkit-scrollbar{
+  scrollbar-color: dark;
 }
 
 .image-container{
@@ -19,7 +24,7 @@ body{
 }
 
 .image-container:hover .overlay{
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 .overlay{
@@ -32,4 +37,11 @@ body{
   font-size: 20px;
   padding: 20px;
   text-align: center;
+  border-top: 1px solid;
+  border-color: #2bff00;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  color: #141414;
 }

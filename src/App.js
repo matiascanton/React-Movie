@@ -8,6 +8,7 @@ import MovieListHeader from './components/MovieListHeader';
 import SearchBox from './components/SearchBox';
 import AddFavourite from './components/AddFavourite';
 import RemoveFavourites from './components/RemoveFavourites';
+import Header from './components/Header';
 
 
 const App = () => {
@@ -17,7 +18,6 @@ const App = () => {
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async (searchValue) =>{
-
     // Seteamos la url de la API con el searchValue del input
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=199b980a`;
 
@@ -31,7 +31,6 @@ const App = () => {
     if(responseJson.Search){
       setMovies(responseJson.Search);
     }
-    
   }
   // Una vez que corre la app, entra useEffect con el searchValue como un string vacio como esta arriba en el useState
   // Como searchValue cambio, entra useEffect llamando a la funcion getMovieRequest y pasandole el input value
@@ -73,11 +72,15 @@ const App = () => {
   return (
     <div className="container-fluid movie-app" >
       <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeader heading="Peliculas"/>
+        <Header/>
         <SearchBox
           searchValue = {searchValue}
           setSearchValue = {setSearchValue}
         />
+      </div>
+      <div className="row d-flex align-items-center mt-4 mb-4">
+        <MovieListHeader heading="Peliculas"/>
+        
       </div>
       <div className="row">
         <MovieList
