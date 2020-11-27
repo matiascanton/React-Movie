@@ -19,7 +19,8 @@ const App = () => {
 
   const getMovieRequest = async (searchValue) =>{
     // Seteamos la url de la API con el searchValue del input
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=199b980a`;
+    /*const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=199b980a`;*/
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=71698e01802198b91cde62fdd60668d3&query=${searchValue}&page=1`;
 
     // Traemos los datos de la API
     const response = await fetch(url);
@@ -28,8 +29,8 @@ const App = () => {
     const responseJson = await response.json();
 
     // Preguntamos si hay datos para mostrar y los seteamos
-    if(responseJson.Search){
-      setMovies(responseJson.Search);
+    if(responseJson.results){
+      setMovies(responseJson.results);
     }
   }
   // Una vez que corre la app, entra useEffect con el searchValue como un string vacio como esta arriba en el useState
@@ -58,7 +59,7 @@ const App = () => {
 
   // Eliminar de Favoritos
   const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = favourites.filter((favourite) => favourite.imdbID !== movie.imdbID);
+    const newFavouriteList = favourites.filter((favourite) => favourite.id !== movie.id);
 
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
