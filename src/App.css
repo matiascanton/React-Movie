@@ -1,47 +1,73 @@
-body{
+body {
   background: #141414;
   color: #ffffff;
 }
-
-.movie-app > .row{
-  overflow-x: auto;
+/*.movie-app > .row {
+  overflow-x: scroll;
+  overflow-y: hidden;
   flex-wrap: nowrap;
   padding: 1rem;
 }
-
-.movie-app > .row::-webkit-scrollbar{
-  scrollbar-color: dark;
-}
-
-.image-container{
+/*.image-container {
   position: relative;
   transition: transform 0.2s;
 }
 
-.image-container:hover{
+.image-container:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.image-container:hover .overlay{
+.image-container:hover .overlay {
   opacity: 0.95;
-}
+}*/
 
-.overlay{
+.overlay {
   position: absolute;
   background: #000000;
   width: 100%;
   transition: 0.5s ease;
   opacity: 0;
   bottom: 0;
-  font-size: 20px;
+  font-size: 10px;
   padding: 20px;
   text-align: center;
-  border-top: 1px solid;
-  border-color: #2bff00;
 }
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
   width: 12px;
-  color: #141414;
+  color: #979696;
+}*/
+
+.row_movies {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll !important;
+  padding: 20px;
+}
+.row_movies::-webkit-scrollbar {
+  display: none !important;
+}
+
+.image-container {
+  object-fit: contain;
+  width: 100%;
+  position: relative;
+  transition: transform 450ms;
+}
+
+.image-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.image-container:hover .overlay {
+  opacity: 0.95;
+}
+
+.title_movie {
+  font-size: 20px !important;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+  margin-left: 1.2rem;
 }
