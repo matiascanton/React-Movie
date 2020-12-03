@@ -6,21 +6,6 @@ const MovieList = ({ title, fetchUrl, favouriteComponent, handleFavouritesClick,
     const FavouriteComponent = favouriteComponent;
 
     const [movies, setMovies] = useState([]);
-    const [favourites, setFavourites] = useState([]);
-
-    /* useEffect(() => {
- 
-         async function fetchData() {
-             const request = await fetch(fetchUrl);
-             const response = await request.json();
-             setMovies(request.data.results);
-             return request;
-         }
-         fetchData();
-     }, [fetchUrl]);*/
-    /* if (moviesFavourite) {
-         setMovies(moviesFavourite);
-     }*/
 
     const getMovieRequest = async (fetchUrl) => {
 
@@ -42,13 +27,10 @@ const MovieList = ({ title, fetchUrl, favouriteComponent, handleFavouritesClick,
     }, [fetchUrl]);
 
 
-
     return (
         <>
             <h2 className="title_movie"> {title}</h2>
             <div className="row row_movies">
-
-
                 {movies.map((movie, index) => (
                     <div className="image-container d-flex justify-conten-start m-3">
                         <img key={movie.id} src={`https://image.tmdb.org/t/p/w200/${movie?.poster_path}`} alt="movie"></img>
@@ -58,8 +40,6 @@ const MovieList = ({ title, fetchUrl, favouriteComponent, handleFavouritesClick,
 
                     </div>
                 ))}
-
-
             </div>
         </>
     );
