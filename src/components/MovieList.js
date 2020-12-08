@@ -20,11 +20,16 @@ const MovieList = ({ title, fetchUrl, favouriteComponent, handleFavouritesClick,
             setMovies(responseJson.results);
         }
     }
-    // Una vez que corre la app, entra useEffect con el searchValue como un string vacio como esta arriba en el useState
-    // Como searchValue cambio, entra useEffect llamando a la funcion getMovieRequest y pasandole el input value
+
     useEffect(() => {
-        getMovieRequest(fetchUrl);
-    }, [fetchUrl]);
+        if (moviesFavourite) {
+            setMovies(moviesFavourite);
+        } else {
+
+
+            getMovieRequest(fetchUrl);
+        }
+    }, [fetchUrl, moviesFavourite]);
 
 
     return (
@@ -32,7 +37,7 @@ const MovieList = ({ title, fetchUrl, favouriteComponent, handleFavouritesClick,
             <h2 className="title_movie"> {title}</h2>
             <div className="row row_movies">
                 {movies.map((movie, index) => (
-                    <div className="image-container d-flex justify-conten-start m-3">
+                    <div className="image-container d-flex m-3">
                         <img key={movie.id} src={`https://image.tmdb.org/t/p/w200/${movie?.poster_path}`} alt="movie"></img>
                         <div onClick={() => handleFavouritesClick(movie)} className="overlay d-flex align-items-center justify-content-center">
                             <FavouriteComponent />

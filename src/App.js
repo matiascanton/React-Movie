@@ -61,7 +61,6 @@ const App = () => {
   useEffect(() => {
     // Convertimos nuestro json que viene del storage en un objeto
     const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites'));
-
     if (movieFavourites) {
       setFavourites(movieFavourites);
     }
@@ -96,14 +95,14 @@ const App = () => {
       />
 
       <div className="container-fluid movie-app" >
-        {/* <div className="row d-flex align-items-center mt-4 mb-4">
+        {/*<div className="row d-flex align-items-center mt-4 mb-4">
 
           <SearchBox
             searchValue={searchValue}
             setSearchValue={setSearchValue}
           />
 
-        </div>*/ }
+  </div>*/}
         <MovieList title="Netelix Originals" fetchUrl={requests.fetchNetflix} favouriteComponent={AddFavourite} handleFavouritesClick={addFavouriteMovie} />
         <MovieList title="Trending" fetchUrl={requests.fetchTrending} favouriteComponent={AddFavourite} handleFavouritesClick={addFavouriteMovie} />
         <MovieList title="Top Rated" fetchUrl={requests.fetchTop} favouriteComponent={AddFavourite} handleFavouritesClick={addFavouriteMovie} />

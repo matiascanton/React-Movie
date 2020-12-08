@@ -51,7 +51,7 @@ body {
 
 .image-container {
   object-fit: contain;
-  width: 100%;
+
   position: relative;
   transition: transform 450ms;
 }

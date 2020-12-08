@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../Nav.css'
 import logo from '../images/netelix.png'
+import SearchBox from './SearchBox';
 
 function Nav() {
 
@@ -24,6 +25,8 @@ function Nav() {
                 src={logo}
                 alt="Logo"
             />
+
+
         </div>
 
 
